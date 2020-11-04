@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>banking habit</title>
+    <link href="static/css/joinus.css" rel="stylesheet" media="all">
+    <script>
+        function joinus() {
+            //1. 정보를 가져온다.
+            let id = $("#id").val();
+            let pw = $("#password").val();
+            let email = $("#email").val();
+            let is_student = $("#is_student").val();
+            let department = $("#department").val();
+
+            //2.하나라고 입력하지 않았을 때 alert
+            if (id == ""){
+                alert("id를 입력하세요");
+                $("#id").focus();
+                return;
+            }
+            else if (pw == ""){
+                alert("비밀번호를 입력하세요")
+                $("#password").focus();
+                return;
+            }
+            else if (is_student == ""){
+                alert("STUDNET/PROFESSOR 여부를 선택하세요")
+                $("#is_student").focus();
+                return;
+            }
+            else if (department == ""){
+                alert("학과를 입력하세요")
+                $("#department").focus();
+                return;
+            }
+            else if (email == ""){
+                alert("email를 입력하세요")
+                $("#email").focus();
+                return;
+            }
+
+            //정보를 서버에 넘긴다.
+            $.ajax({
+                type : "POST",
+                url : "/joinus",
+                data: {id : id, password :pw, department:department, is_student : is_student, email : email},
+                success : function(response) {
+                    if(response["result"] == "success") {
+                        alert(response["msg"]);
+                        window.location.reload();
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-1">
+            <div class="card-heading">
+                <img href="static/images/school.jpg">
+            </div>
+            <div class="card-body">
+                <h2 class="title">Join Us</h2>
+                <form method="POST">
+                    <div class="input-group">
+                        <label>ID</label>
+                        <input class="input--style-1" type="text" placeholder="ID" name="id">
+
+                    </div>
+
+                    <div class="row row-space">
+                        <div class="input-group">
+                            <label>PASSWORD</label>
+                            <input class="input--style-1 js-datepicker" type="text" placeholder="PASSWORD" name="password">
+                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar">
+
+                            </i>
+                        </div>
+                    </div>
+
+
+                    <div class="col-2">
+                        <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <label>PROFESSOR/STUDENT</label>
+                                <select name="is_student" tabindex="-1" class="select2-hidden-accessible"
+                                        aria-hidden="true">
+                                    <option disabled="disabled" selected="selected">professor/student</option>
+                                    <option>Professor</option>
+                                    <option>Student</option>
+                                    <option>Other</option>
+                                </select><!--<span class="select2 select2-container select2-container--default" dir="ltr"
+                                               style="width: 81.2px;"><span class="selection"><span
+                                    class="select2-selection select2-selection--single" role="combobox"
+                                    aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                    aria-labelledby="select2-gender-rb-container"><span
+                                    class="select2-selection__rendered" id="select2-gender-rb-container" title="GENDER"></span><span
+                                    class="select2-selection__arrow" role="presentation"><b
+                                    role="presentation"></b></span></span></span><span class="dropdown-wrapper"
+                                                                                       aria-hidden="true"></span></span>
+                                <div class="select-dropdown"></div>-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-space">
+                        <div class="input-group">
+                            <label>EMAIL</label>
+                            <input class="input--style-1 js-datepicker" type="text" placeholder="EMAIL" name="email">
+                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar">
+
+                            </i>
+                        </div>
+                    </div>
+
+                    <div class="row row-space">
+                        <div class="input-group">
+                            <label>DEPARTMENT</label>
+                            <input class="input--style-1 js-datepicker" type="text" placeholder="DEPARTMENT" name="department">
+                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar">
+
+                            </i>
+                        </div>
+                    </div>
+
+                    <div>
+                    <button class="btn btn--green" type="submit" onclick = "joinus()">JOIN US</button>
+                    </div>
+                    </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
