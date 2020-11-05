@@ -3,30 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <title>MindConnecting Main</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" media="all">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- 구글 폰트 -->
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&amp;display=swap" rel="stylesheet">
+    <link href="static/css/main.css" rel="stylesheet" media="all">
+    <style type="text/css">
+        * {
+            font-family: "Do Hyeon", sans-serif;
+        }
+
+        h1,
+        h5 {
+            display: inline;
+        }
+
+        .info {
+            padding-left: 100px;
+            padding-right: 100px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .review {
+            text-align: center;
+        }
+
+        .title-container {
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .reviews {
+            margin-top: 100px;
+            padding-left : 50px;
+            padding-right : 50px;
+            padding-bottom : 50px;
+
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-primary">
-        <div class="card-body">
-            <a class="nav-link" href="communicate.html" style="font-size: 18px; color: white; width:200px; height: 30px"  >MIND CONNECTING</a>
+<nav class="navbar navbar-expand-sm bg-primary">
+    <div class="card-body">
+        <a class="nav-link" href="communicate.html" style="font-size: 18px; color: white; width:200px; height: 30px">MIND
+            CONNECTING</a>
+    </div>
+
+    <!--    <nav class="navbar navbar-expand-sm bg-blue">-->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="login.html" style="color: white">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="joinus.html" style="color: white">register</a>
+        </li>
+    </ul>
+</nav>
+
+
+<div class="info">
+    <div class="title-container">
+        <h1>자유 익명 게시판</h1>
+        <p>질문 또는 정보 공유를 자유롭게 해주세요 ! </p>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Title</span>
         </div>
+        <input type="text" class="form-control" id="title">
+    </div>
+    <!--                <div class="input-group mb-3">-->
+    <!--                    <div class="input-group-prepend">-->
+    <!--                        <span class="input-group-text">저자</span>-->
+    <!--                    </div>-->
+    <!--                    <input type="text" class="form-control" id="author">-->
+    <!--                </div>-->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Content</span>
+        </div>
+        <textarea class="form-control" id="bookReview" cols="30" rows="5" placeholder="140자까지 입력할 수 있습니다."
+                  onkeyup="validateLength(this)"></textarea>
+    </div>
+    <div class="review">
+        <button onclick="makeReview()" type="button" class="btn btn-primary">등록하기</button>
+    </div>
+</div>
 
-<!--    <nav class="navbar navbar-expand-sm bg-blue">-->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="login.html" style="color: white">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="joinus.html" style="color: white">register</a>
-            </li>
-        </ul>
-    </nav>
-
-
-        <img src="../static/image/sungshin1.jpg" style="height:100px">
+<div class="reviews">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">title</th>
+            <th scope="col">content</th>
+            <th scope="col">date</th>
+        </tr>
+        </thead>
+        <tbody id="reviews-box">
+        <tr>
+            <td>d</td>
+            <td>d</td>
+            <td>d</td>
+        </tr>
+        <tr>
+            <td>fff</td>
+            <td>rrer</td>
+            <td>erererer</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>

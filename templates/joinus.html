@@ -3,6 +3,9 @@
 <head>
     <title>MindConnecting JoinUs</title>
     <link href="static/css/joinus.css" rel="stylesheet" media="all">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Space+Grotesk:wght@500;700&display=swap');
+    </style>
     <script>
         function joinus() {
             //1. 정보를 가져온다.
@@ -51,7 +54,7 @@
     </script>
 </head>
 <body>
-<div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+<div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo" >
     <div class="wrapper wrapper--w680">
         <div class="card card-1">
             <div class="card-heading">
@@ -83,8 +86,8 @@
                     <div class="col-2">
                         <div class="input-group">
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <label>PROFESSOR/STUDENT</label>
-                                <select name="is_student" tabindex="-1" class="select2-hidden-accessible"
+                                <label style="padding-bottom : 20px">PROFESSOR/STUDENT</label>
+                                <select  name="is_student" tabindex="-1" class="select2-hidden-accessible"
                                         aria-hidden="true">
                                     <option disabled="disabled" selected="selected">professor/student</option>
                                     <option>Professor</option>
@@ -126,7 +129,7 @@
                     </div>
 
                     <div>
-                        <button class="btn btn--green" type="submit" onclick="joinus()">JOIN US</button>
+                        <button class="btn btn-primary" type="button" onclick="joinus()" >JOIN US</button>
                     </div>
                 </form>
 
