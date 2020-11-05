@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>banking habit</title>
+    <title>MindConnecting JoinUs</title>
     <link href="static/css/joinus.css" rel="stylesheet" media="all">
     <script>
         function joinus() {
@@ -13,27 +13,23 @@
             let department = $("#department").val();
 
             //2.하나라고 입력하지 않았을 때 alert
-            if (id == ""){
+            if (id == "") {
                 alert("id를 입력하세요");
                 $("#id").focus();
                 return;
-            }
-            else if (pw == ""){
+            } else if (pw == "") {
                 alert("비밀번호를 입력하세요")
                 $("#password").focus();
                 return;
-            }
-            else if (is_student == ""){
+            } else if (is_student == "") {
                 alert("STUDNET/PROFESSOR 여부를 선택하세요")
                 $("#is_student").focus();
                 return;
-            }
-            else if (department == ""){
+            } else if (department == "") {
                 alert("학과를 입력하세요")
                 $("#department").focus();
                 return;
-            }
-            else if (email == ""){
+            } else if (email == "") {
                 alert("email를 입력하세요")
                 $("#email").focus();
                 return;
@@ -41,11 +37,11 @@
 
             //정보를 서버에 넘긴다.
             $.ajax({
-                type : "POST",
-                url : "/joinus",
-                data: {id : id, password :pw, department:department, is_student : is_student, email : email},
-                success : function(response) {
-                    if(response["result"] == "success") {
+                type: "POST",
+                url: "/joinus",
+                data: {id: id, password: pw, department: department, is_student: is_student, email: email},
+                success: function (response) {
+                    if (response["result"] == "success") {
                         alert(response["msg"]);
                         window.location.reload();
                     }
@@ -62,8 +58,10 @@
                 <img href="static/images/school.jpg">
             </div>
             <div class="card-body">
-                <h2 class="title">Join Us</h2>
-                <form method="POST">
+                <div >
+                    <h2 class="title" style="text-align:center; text-decoration-color: darkblue">Join Us</h2>
+                </div>
+                <form method="POST" style="padding-left : 50px; padding-bottom: 50px">
                     <div class="input-group">
                         <label>ID</label>
                         <input class="input--style-1" type="text" placeholder="ID" name="id">
@@ -73,7 +71,8 @@
                     <div class="row row-space">
                         <div class="input-group">
                             <label>PASSWORD</label>
-                            <input class="input--style-1 js-datepicker" type="text" placeholder="PASSWORD" name="password">
+                            <input class="input--style-1 js-datepicker" type="text" placeholder="PASSWORD"
+                                   name="password">
                             <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar">
 
                             </i>
@@ -118,7 +117,8 @@
                     <div class="row row-space">
                         <div class="input-group">
                             <label>DEPARTMENT</label>
-                            <input class="input--style-1 js-datepicker" type="text" placeholder="DEPARTMENT" name="department">
+                            <input class="input--style-1 js-datepicker" type="text" placeholder="DEPARTMENT"
+                                   name="department">
                             <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar">
 
                             </i>
@@ -126,9 +126,9 @@
                     </div>
 
                     <div>
-                    <button class="btn btn--green" type="submit" onclick = "joinus()">JOIN US</button>
+                        <button class="btn btn--green" type="submit" onclick="joinus()">JOIN US</button>
                     </div>
-                    </form>
+                </form>
 
             </div>
         </div>

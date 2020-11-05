@@ -16,7 +16,7 @@ def login():
     if request.method == 'GET':
         return render_template('login.html')
     else:
-        id = reqeust.form['id']
+        id = request.form['id']
         pw = request.form['password']
 
         memberInformation = {
@@ -27,7 +27,8 @@ def login():
         #db의 아이디,비밀번호와 입력된 정보가 맞는지 확인
 
 
-        return jsonify({'result':'success', 'msg' : 'login seccuess'})
+
+        return jsonify({'result':'success', 'msg' : 'login success'})
 
 @app.route("/joinus", methods=['GET', 'POST'])
 def joinus():
@@ -50,6 +51,11 @@ def joinus():
         print(information)
         db.member.insert_one({'id' : id, 'password': pw, 'is_student': is_student, 'email': email, 'department': department})
         return render_template('login.html')
+
+@app.route("/communicate")
+def main():
+    return render_template('communicate.html')
+
 
 if __name__ == '__main__':
     app.run("0.0.0.0", port=5000, debug=True)

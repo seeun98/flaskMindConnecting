@@ -5,7 +5,7 @@ import requests
 from time import sleep
 
 client = MongoClient('localhost', 27017)
-db = client.mindConnecting  # 'spartaten'라는 이름의 db를 사용한다.
+db = client.mindConnecting  # 'mindConnecting'라는 이름의 db를 사용한다.
 
 # driver= webdriver.Chrome('C:\Users\ASUS\Desktop\sparta10\flaskMindConnecting\chromedriver.exe')
 driver= webdriver.Chrome('chromedriver.exe')
