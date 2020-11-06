@@ -14,8 +14,8 @@ driver.implicitly_wait(1)
 url = 'http://everytime.kr/timetable'
 
 driver.get(url)
-driver.find_element_by_name('userid').send_keys('michelle5659')
-driver.find_element_by_name('password').send_keys('8589tpdms')
+driver.find_element_by_name('userid').send_keys('')
+driver.find_element_by_name('password').send_keys('')
 driver.find_element_by_xpath("""//*[@id="container"]/form/p[3]/input""").click() #로그인 버튼 클릭
 driver.implicitly_wait(3)
 driver.find_element_by_xpath("""//*[@id="container"]/ul/li[1]""").click() #수업목록에서 검색 클릭
