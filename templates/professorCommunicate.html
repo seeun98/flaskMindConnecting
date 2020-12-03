@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% block custom_style %}
+{% endblock %}
+
+{% block content %}
+    <div align="left" class="mySchedules" >
+        <a href="{{ url_for('mySchedule')}}"</a><button class="btn btn-info" style="margin: 50px">시간표 / 공지 게시판</button>
+    </div>
+    {% if g.is_professor %}
+    <div align="right">
+        <button class="btn btn-success" ><a href= "{{ url_for('professorCommunicateForm', code=code) }}"  style="padding: 50px; color:white">게시글 등록하기</a></button>
+    </div>
+    {% endif %}
+    
+
+    {% for info in professorCommunicateInfo %}
+
+        
+    <div class ="container">
+            <div class= "card bg-light text-dark">
+                <div class="card-header"><strong>{{info.title}}</strong></div>
+                <div class="card-body">{{info.content}}</div>
+                <div class="card-footer">{{info.timestamp}} {{info.user}}</div>
+                <!-- <div class="card-footer"></div> -->
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}
